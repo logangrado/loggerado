@@ -1,6 +1,6 @@
 [project]
 name = "loggerado"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Logan Grado's custom logger"
 authors = [
     {name = "Logan Grado", email = "logangrado@gmail.com"},
@@ -14,9 +14,12 @@ license = {text = "MIT"}
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-
 [tool.pdm]
 package-type = "library"
+
+[tool.pdm.version]
+source = "file"
+path = "mypackage/__init__.py"
 
 [tool.pdm.dev-dependencies]
 dev = [
