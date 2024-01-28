@@ -1,0 +1,28 @@
+[project]
+name = "loggerado"
+version = "0.1.0"
+description = "Logan Grado's custom logger"
+authors = [
+    {name = "Logan Grado", email = "logangrado@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+package-type = "library"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "black>=24.1.1",
+    "flake8>=5.0.4",
+    "ipdb>=0.13.13",
+    "ipython>=8.12.3",
+]
