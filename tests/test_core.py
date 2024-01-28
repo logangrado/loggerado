@@ -36,5 +36,6 @@ class TestCore:
 
         for i, level in enumerate(levels[level:]):
             message = out[i]
+            print(message)
             expected = rf"\[{nonce}\] {level:>8s} | test_logger: {level.lower()}"
             assert re.match(expected, message)
