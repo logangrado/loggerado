@@ -19,7 +19,7 @@ package-type = "library"
 
 [tool.pdm.version]
 source = "file"
-path = "mypackage/__init__.py"
+path = "src/loggerado/__init__.py"
 
 [tool.pdm.dev-dependencies]
 dev = [
