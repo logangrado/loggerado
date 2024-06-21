@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
+from typing import Optional, IO
 import logging
 import sys
 
 
-def colorize(string, codes):
+def _colorize(string, codes):
     if not isinstance(codes, str):
         codes = ";".join(codes)
     code = "\033[" + codes + "m"
@@ -13,21 +14,6 @@ def colorize(string, codes):
 
 
 class CustomFormatter(logging.Formatter):
-    grey = "\x1b[38;20m"
-    yellow = "\x1b[33;20m"
-    red = "\x1b[31;20m"
-    bold_red = "\x1b[31;1m"
-    reset = "\x1b[0m"
-    format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
-
-    FORMATS = {
-        logging.DEBUG: grey + format + reset,
-        logging.INFO: grey + format + reset,
-        logging.WARNING: yellow + format + reset,
-        logging.ERROR: red + format + reset,
-        logging.CRITICAL: bold_red + format + reset,
-    }
-
     def __init__(self, ansi=True):
         self._ansi = ansi
 
@@ -57,7 +43,14 @@ class CustomFormatter(logging.Formatter):
         }
 
     def _get_format(self, time_color, level_color, name_color):
-        return f"{colorize(self._timestamp, time_color)} {colorize(self._levelname, level_color)} {colorize(self._name,name_color)} {self._message}"
+        return " ".join(
+            [
+                _colorize(self._timestamp, time_color),
+                _colorize(self._levelname, level_color),
+                _colorize(self._name, name_color),
+                self._message,
+            ]
+        )
 
     def format(self, record):
         if self._ansi:
@@ -69,8 +62,17 @@ class CustomFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-def configure_logger(logger, level, stream=None, ansi=False):
-    """Create a logging interface"""
+def configure_logger(logger: logging.Logger, level: str, stream: Optional[IO[str]] = None, ansi: bool = False) -> None:
+    """
+    Configure logger
+
+    Parameters
+    ----------
+    logger : Logger to configure
+    level : Logging level to set
+    stream : Logging output stream. If None, defaults to sys.stdout
+    ansi : If True, use Ansi characters
+    """
 
     logger.propagate = False
     logger.handlers = []  # Remove all other handlers
@@ -79,7 +81,7 @@ def configure_logger(logger, level, stream=None, ansi=False):
         stream = sys.stdout
     handler = logging.StreamHandler(stream=stream)
 
-    # create formatter and add it to the handlers
+    # Create formatter and add it to the handlers
     formatter = CustomFormatter(ansi=ansi)
 
     handler.setFormatter(formatter)
