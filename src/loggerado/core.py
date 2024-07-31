@@ -3,6 +3,7 @@
 from typing import Optional, IO
 import logging
 import sys
+import os
 
 
 def _colorize(string, codes):
@@ -14,8 +15,9 @@ def _colorize(string, codes):
 
 
 class CustomFormatter(logging.Formatter):
-    def __init__(self, ansi=True):
+    def __init__(self, ansi=True, use_base_name=False):
         self._ansi = ansi
+        self._use_base_name = use_base_name
 
         # Colors
         grey = "38;5;8"
@@ -58,11 +60,20 @@ class CustomFormatter(logging.Formatter):
         else:
             log_fmt = self._format
 
+        if self._use_base_name:
+            record.name = record.name.split(".")[0]
+
         formatter = logging.Formatter(log_fmt, datefmt=self._datefmt)
         return formatter.format(record)
 
 
-def configure_logger(logger: logging.Logger, level: str, stream: Optional[IO[str]] = None, ansi: bool = False) -> None:
+def configure_logger(
+    logger: logging.Logger,
+    level: str,
+    stream: Optional[IO[str]] = None,
+    ansi: bool = False,
+    use_base_name: bool = False,
+) -> None:
     """
     Configure logger
 
@@ -82,7 +93,7 @@ def configure_logger(logger: logging.Logger, level: str, stream: Optional[IO[str
     handler = logging.StreamHandler(stream=stream)
 
     # Create formatter and add it to the handlers
-    formatter = CustomFormatter(ansi=ansi)
+    formatter = CustomFormatter(ansi=ansi, use_base_name=use_base_name)
 
     handler.setFormatter(formatter)
 
