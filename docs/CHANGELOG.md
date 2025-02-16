@@ -7,9 +7,9 @@
   
 - Dev
   - Check changelog, verison, on merge
-  - Docs
+  - Docs, autobuild
   - Auto-publish
-
+  
 ## 0.2.0
 
 - Add support for colorized logging
