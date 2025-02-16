@@ -1,0 +1,29 @@
+name: Run Tests on PR
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.12-alpine
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install PDM
+        run: |
+          curl -sSL https://pdm-project.org/install-pdm.py | python3 -
+
+      - name: Install dependencies
+        run: |
+          pdm sync
+
+      - name: Run Tests
+        run: |
+          pdm run pytest tests
