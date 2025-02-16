@@ -78,10 +78,16 @@ def configure_logger(
 
     Parameters
     ----------
-    logger : Logger to configure
-    level : Logging level to set
-    stream : Logging output stream. If None, defaults to sys.stdout
-    ansi : If True, use Ansi characters
+    logger
+        Logger to configure
+    level
+        Logging level to set
+    stream
+        Logging output stream. If None, defaults to sys.stdout
+    ansi
+        If True, use Ansi characters
+    use_base_name
+        If True, only use the logger's base name (e.g. `logger` vs `logger.module`, etc)
     """
 
     logger.propagate = False

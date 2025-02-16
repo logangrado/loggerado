@@ -7,10 +7,34 @@ loggerado
 =====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
+   changelog
    api
+
+Easily configure pretty python logs!
+
+:func:`loggerado.configure_logger`
+
+Example:
+
+.. code-block:: python
+
+   import logging
+   import loggerado
+
+   logger = logging.getLogger(__name__)
+
+   loggerado.configure_logger(logger,'INFO')
+
+   logger.info("Hello!")
+
+.. code-block:: ansi
+
+   [2001-01-01 00:00:00.000]     INFO | test_logger.logger: Hello!
+
+You can also use `ansi=True` for colorized log messages.
 
 Indices and tables
 ==================
