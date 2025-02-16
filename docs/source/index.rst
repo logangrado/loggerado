@@ -10,7 +10,12 @@ loggerado
    :maxdepth: 2
    :caption: Contents:
 
+   changelog
    api
+
+Easily configure pretty python logs!
+
+:func:`loggerado.configure_logger`
 
 Indices and tables
 ==================
