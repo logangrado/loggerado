@@ -4,6 +4,7 @@ from pathlib import Path
 import invoke
 
 ROOT = Path(__file__).parent
+SHELL = "/bin/sh"
 
 
 @invoke.task
@@ -15,6 +16,6 @@ def format(c, check=False):
         black_command += " --check"
 
     print("Running Black")
-    c.run(black_command)
+    c.run(black_command, shell=SHELL)
     print("Running Flake8")
-    c.run(flake_command)
+    c.run(flake_command, shell=SHELL)
