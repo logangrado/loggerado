@@ -1,10 +1,11 @@
 name: Build and Publish
 
 on:
-  push:
+  pull_request:
     branches:
       - master
-
+    types:
+      - closed
 jobs:
   build-and-publish:
     name: Build and Publish to PyPI
@@ -20,7 +21,4 @@ jobs:
         run: pdm build
 
       - name: Publish to PyPI
-        run: |
-          echo PUBLISH
-          ls dist/
-          #pdm publish -u __token__ -P ${{ secrets.PYPI_API_TOKEN }}
+        run: pdm publish -u __token__ -P ${{ secrets.PYPI_API_TOKEN }}
