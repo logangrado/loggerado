@@ -10,15 +10,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: python:3.12-alpine
+      image: docker.io/grado/pdm:3.12-alpine
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Install PDM
-        run: |
-          curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 
       - name: Install dependencies
         run: |

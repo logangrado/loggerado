@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  pr_checks:
+    image: docker.io/grado/pdm:3.12-alpine
+    build:
+      context: ../
+      dockerfile: ./docker/dockerfile
+    entrypoint: /bin/sh
