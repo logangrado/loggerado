@@ -29,4 +29,5 @@ dev = [
     "ipdb>=0.13.13",
     "ipython>=8.12.3",
     "freezegun>=1.5.1",
+    "sphinx>=7.1.2",
 ]
