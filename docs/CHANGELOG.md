@@ -1,10 +1,13 @@
 # CHANGELOG
 
-## 0.3.0
+## UNRELEASED
 
 - Added
   - Added `use_base_name` parameter
   
+- Dev
+  - Check changelog, verison, on merge
+  - Docs
 
 ## 0.2.0
 
