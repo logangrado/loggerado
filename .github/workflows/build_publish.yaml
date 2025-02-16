@@ -1,4 +1,4 @@
-name: Build and Publish
+name: Tag, Build and Publish
 
 on:
   pull_request:
@@ -16,6 +16,20 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Extract version
+        id: get_version
+        run: |
+          VERSION=$(grep -oP '__version__\s*=\s*"\K[^"]+' src/loggerado/__init__.py)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Extracted version: $VERSION"
+
+      - name: Tag commit
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git tag -a "v$VERSION" -m "Release version $VERSION"
+          git push origin "v$VERSION"
 
       - name: Build package
         run: pdm build
