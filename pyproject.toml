@@ -28,4 +28,10 @@ dev = [
     "flake8>=5.0.4",
     "ipdb>=0.13.13",
     "ipython>=8.12.3",
+    "freezegun>=1.5.1",
+    "invoke>=2.2.0",
 ]
+
+[tool.black]
+line_length=120
+exclude=".venv"
