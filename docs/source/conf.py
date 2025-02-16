@@ -27,6 +27,7 @@ extensions = [
     "sphinx.ext.viewcode",  # Add links to source code
     "sphinx_autodoc_typehints",  # Show type hints in docs
     "sphinx_rtd_theme",
+    "sphinx_automodapi.automodapi",
 ]
 
 templates_path = ["_templates"]
@@ -37,7 +38,9 @@ autosummary_generate = True
 autodoc_member_order = "bysource"  # Preserve function order
 napoleon_google_docstring = True  # Support Google-style docstrings
 napoleon_numpy_docstring = False  # Disable NumPy-style docstrings
+numpydoc_show_class_members = False
 
+automodapi_toctreedirnm = "api_generated"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

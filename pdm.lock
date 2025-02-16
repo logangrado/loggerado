@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:4f323e9504fa0d21dce24e3f8cebd0059a9da85169f32742f64ae742ce479cca"
+content_hash = "sha256:b6991cd3ef6007bd1f15c8d0b4247b76103c715f89032372b1ed22aea3af3dbf"
 
 [[package]]
 name = "alabaster"
@@ -794,6 +794,20 @@ dependencies = [
 files = [
     {file = "sphinx_autodoc_typehints-2.0.1-py3-none-any.whl", hash = "sha256:f73ae89b43a799e587e39266672c1075b2ef783aeb382d3ebed77c38a3fc0149"},
     {file = "sphinx_autodoc_typehints-2.0.1.tar.gz", hash = "sha256:60ed1e3b2c970acc0aa6e877be42d48029a9faec7378a17838716cacd8c10b12"},
+]
+
+[[package]]
+name = "sphinx-automodapi"
+version = "0.18.0"
+requires_python = ">=3.8"
+summary = "Sphinx extension for auto-generating API documentation for entire modules"
+groups = ["dev"]
+dependencies = [
+    "sphinx>=4",
+]
+files = [
+    {file = "sphinx_automodapi-0.18.0-py3-none-any.whl", hash = "sha256:022860385590768f52d4f6e19abb83b2574772d2721fb4050ecdb6e593a1a440"},
+    {file = "sphinx_automodapi-0.18.0.tar.gz", hash = "sha256:7bf9d9a2cb67a5389c51071cfd86674ca3892ca5d5943f95de4553d6f35dddae"},
 ]
 
 [[package]]

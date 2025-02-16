@@ -5,4 +5,5 @@ API Documentation
    :maxdepth: 2
    :caption: API Reference
 
-   modules
+
+.. automodapi:: loggerado
