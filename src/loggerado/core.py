@@ -3,7 +3,6 @@
 from typing import Optional, IO
 import logging
 import sys
-import os
 
 
 def _colorize(string, codes):
