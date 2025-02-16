@@ -4,4 +4,4 @@
 
 Easily configure pretty python logs!
 
-Read the docs
+[Read the docs](https://loggerado.readthedocs.io/en/latest/)
