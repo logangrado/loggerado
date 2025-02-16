@@ -30,4 +30,5 @@ dev = [
     "ipython>=8.12.3",
     "freezegun>=1.5.1",
     "sphinx>=7.1.2",
+    "sphinx-rtd-theme>=3.0.2",
 ]
