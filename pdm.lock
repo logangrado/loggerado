@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:7283bfcfadf45f555133a5308710093f13bff6f44bed07883fe362279645f80e"
+content_hash = "sha256:4f323e9504fa0d21dce24e3f8cebd0059a9da85169f32742f64ae742ce479cca"
 
 [[package]]
 name = "alabaster"
@@ -780,6 +780,20 @@ dependencies = [
 files = [
     {file = "sphinx-7.1.2-py3-none-any.whl", hash = "sha256:d170a81825b2fcacb6dfd5a0d7f578a053e45d3f2b153fecc948c37344eb4cbe"},
     {file = "sphinx-7.1.2.tar.gz", hash = "sha256:780f4d32f1d7d1126576e0e5ecc19dc32ab76cd24e950228dcf7b1f6d3d9e22f"},
+]
+
+[[package]]
+name = "sphinx-autodoc-typehints"
+version = "2.0.1"
+requires_python = ">=3.8"
+summary = "Type hints (PEP 484) support for the Sphinx autodoc extension"
+groups = ["dev"]
+dependencies = [
+    "sphinx>=7.1.2",
+]
+files = [
+    {file = "sphinx_autodoc_typehints-2.0.1-py3-none-any.whl", hash = "sha256:f73ae89b43a799e587e39266672c1075b2ef783aeb382d3ebed77c38a3fc0149"},
+    {file = "sphinx_autodoc_typehints-2.0.1.tar.gz", hash = "sha256:60ed1e3b2c970acc0aa6e877be42d48029a9faec7378a17838716cacd8c10b12"},
 ]
 
 [[package]]
