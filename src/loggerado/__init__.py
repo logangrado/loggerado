@@ -1,3 +1,3 @@
-__version__ = "0.2.0"
+__version__ = "0.2.1b"
 
 from loggerado.core import configure_logger
