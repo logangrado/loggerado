@@ -28,4 +28,14 @@ dev = [
     "flake8>=5.0.4",
     "ipdb>=0.13.13",
     "ipython>=8.12.3",
+    "freezegun>=1.5.1",
+    "sphinx>=7.1.2",
+    "sphinx-rtd-theme>=3.0.2",
+    "sphinx-autodoc-typehints>=2.0.1",
+    "sphinx-automodapi>=0.18.0",
+    "invoke>=2.2.0",
 ]
+
+[tool.black]
+line_length=120
+exclude=".venv"
