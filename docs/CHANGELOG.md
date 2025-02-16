@@ -8,6 +8,7 @@
 - Dev
   - Check changelog, verison, on merge
   - Docs
+  - Auto-publish
 
 ## 0.2.0
 
